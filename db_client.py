@@ -7,6 +7,7 @@ conn = pyodbc.connect('Driver={SQL Server}; Server=DOMINI-LAPTOP\SQL2019; Databa
                       + database_name + '; Trusted_Connection=yes;')
 
 
+# load list of villagers from the database
 def load_villagers():
     try:
         cursor = conn.cursor()
@@ -27,6 +28,7 @@ def load_villagers():
         cursor.close()
 
 
+# load selected villager from the database
 def load_villager(villager_id):
     try:
         cursor = conn.cursor()
@@ -45,6 +47,7 @@ def load_villager(villager_id):
         cursor.close()
 
 
+# load villagers which are related to the search term from the database
 def search_villagers(v_name):
     try:
         cursor = conn.cursor()
@@ -64,6 +67,7 @@ def search_villagers(v_name):
         cursor.close()
 
 
+# add villagers to database
 def add_villagers(table_name, records):
     try:
         cursor = conn.cursor()
